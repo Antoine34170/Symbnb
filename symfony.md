@@ -1,3 +1,11 @@
+  # heroku
+  "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "compile": [
+            "php bin/console doctrine:migrations:migrate",
+            "php bin/console doctrine:fixtures:load --no-interaction --env=PROD"
+        ]
  - list all routes in APP
  php bin/console debug:router
  
