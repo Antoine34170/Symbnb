@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Vous n'avez pas le droit d'accéder à cette ressource
+{% endblock %}
+
+{% block body %}
+	<div class="container my-3">
+		<h1>Error 403</h1>
+		<div class="alert alert-danger">
+			<p>Vous n'avez pas le droit d'accéder à cette ressource
+			</p>
+
+		</div>
+
+
+		<a href="{{path('home')}}" class="btn btn-primary">Retour à l'accueil</a>
+		<a href="{{path('ads_index')}}" class="btn btn-success">Consulter les annonces</a>
+
+	</div>
+{% endblock %}

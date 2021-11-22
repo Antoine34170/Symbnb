@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.min.css" integrity="sha512-KulI0psuJQK8UMpOeiMLDXJtGOZEBm8RZNTyBBHIWqoXoPMFcw+L5AEo0YMpsW8BfiuWrdD1rH6GWGgQBF59Lg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+				height: 100vh;
+			}
+
+			div.card {
+				margin-top: 10%;
+			}
+		</style>
+		<title>Connexion à l'administration</title>
+	</head>
+	<body>
+		<div class="col-md-4">
+			<div class="card bg-light">
+				<div class="card-header">
+					<h4 class="card-title">
+						<i class="fa fa-lock"></i>Connexion à l'administration
+					</h4>
+
+				</div>
+				<div class="card-body">
+					{% if hasError %}
+						<div class="alert alert-warning">
+							<p>Les informations que vous avez fournies ne sont pas correctes</p>
+						</div>
+					{% endif %}
+					<form action="" method="post">
+						<div class="form group">
+							<label for="_username"></label><input type="text" class="form-control" placeholder="Adresse email ..." name="_username" value="{{username}}"></div>
+						<div class="form group mb-3">
+							<label for="_password"></label><input type="password" class="form-control" placeholder="Mot de passe" name="_password"></div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-lock-open"></i>Connexion</button>
+							<a href="{{path('home')}}" class="btn btn-link">
+								<i class="fas fa-arrow-circle-left"></i>Retour au site</a>
+
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>

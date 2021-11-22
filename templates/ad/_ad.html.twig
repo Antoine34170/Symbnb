@@ -1,0 +1,39 @@
+{% set url = path('ads_show',{'slug':ad.slug}) %}
+
+<div class="col-md-4">
+	<div class="card bg-light mb-3">
+		<div class="card-header text-center"> {{ ad.rooms }}
+			chambres,
+			<strong>{{ ad.price }}
+				&euro;</strong>
+			<br>
+			{% if ad.comments |length > 0 %}
+				<small<br {% include "common/rating.html.twig" with{'rating': ad.avgRatings} %}</small>
+				{% else %}
+					<small>Pas encore noté</small>
+			{% endif %}
+
+
+		</div>
+		<a href="{{url}}">
+			<img src="{{ ad.coverImage }}" alt="Image de l' appartement" style="height:200px;width:100%;display:block;">
+		</a>
+		<div class="card-body">
+			<a href="{{url}}">
+				<h4 class="card-title">{{ ad.title }}</h4>
+			</a>
+			<p>{{ ad.introduction }}</p>
+			<a href="{{url}}" class="btn btn-secondary">En savoir plus!</a>
+			{% if app.user and app.user == ad.author %}
+				<a href="{{path('ads_edit', {'slug': ad.slug})}}" class="btn btn-primary">
+					Editer !</a>
+			{% endif %}
+			{% if app.user and app.user == ad.author %}
+				<a href="{{path('ads_delete', {'slug': ad.slug})}}" class="btn btn-danger" onclick="return confirm(`Etes vous sur de supprimer l'annonce : {{ad.title}}`)">
+					Supprimer l'annonce</a>
+			{% endif %}
+
+
+		</div>
+	</div>
+</div>
